@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SearchStatiComponent } from './search-stati/search-stati.component';
 import { StatoComponent } from './search-stati/stato/stato.component';
 
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { StatoComponent } from './search-stati/stato/stato.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

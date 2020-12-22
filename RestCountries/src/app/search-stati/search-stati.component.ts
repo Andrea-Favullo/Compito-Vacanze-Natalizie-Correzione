@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { StatiServiceService } from './stati-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-stati',
   templateUrl: './search-stati.component.html',
   styleUrls: ['./search-stati.component.css']
 })
-export class SearchStatiComponent{
-
+export class SearchStatiComponent {
   query: string;
+  obsStati: Observable<Object>;
   results: any;
 
-  constructor() {}
+  constructor(public stati_service: StatiServiceService) { }
 
   submit(query: HTMLInputElement): void {
 
@@ -18,6 +20,7 @@ export class SearchStatiComponent{
       return;
     }
     this.query = query.value;
-    console.log(this.query)
+    this.obsStati = this.stati_service.search(this.query);
+    this.obsStati.subscribe((data) => { this.results = data; console.log(this.results) });
   }
 }
