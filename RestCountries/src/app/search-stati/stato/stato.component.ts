@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { StatiServiceService } from '../stati-service.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-stato',
@@ -17,7 +18,8 @@ export class StatoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: StatiServiceService) { }
+    private service: StatiServiceService,
+    private location: Location) { }
 
 
   ngOnInit(): void {
@@ -30,5 +32,9 @@ export class StatoComponent implements OnInit {
     console.log(code)
     this.pokeServiceObs = this.service.getNation(code);
     this.pokeServiceObs.subscribe((data) => this.nazione = data)
+  }
+
+  back(): void {
+    this.location.back();
   }
 }
