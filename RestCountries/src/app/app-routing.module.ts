@@ -5,7 +5,7 @@ import { StatoComponent } from './search-stati/stato/stato.component';
 
 const routes: Routes = [
   { path: 'search-stati', component: SearchStatiComponent },
-  { path: 'stato/:id', component: StatoComponent },
+  { path: 'stato/:alpha2Code', component: StatoComponent },
   { path: '', redirectTo: '/search-stati', pathMatch: 'full' }
 ];
 

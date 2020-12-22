@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class SearchStatiComponent {
   query: string;
   obsStati: Observable<Object>;
-  results: any;
+  nazioni: any;
 
   constructor(public stati_service: StatiServiceService) { }
 
@@ -21,6 +21,6 @@ export class SearchStatiComponent {
     }
     this.query = query.value;
     this.obsStati = this.stati_service.search(this.query);
-    this.obsStati.subscribe((data) => { this.results = data; console.log(this.results) });
+    this.obsStati.subscribe((data) => { this.nazioni = data; console.log(this.nazioni) });
   }
 }

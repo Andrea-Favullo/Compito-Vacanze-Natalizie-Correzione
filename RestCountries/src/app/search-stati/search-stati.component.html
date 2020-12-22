@@ -5,4 +5,31 @@
 	<button (click)="submit(newquery)">Ricerca</button>
 </p>
 
-{{ results | json }}
+<div *ngIf="nazioni">
+
+	<div *ngIf="!nazioni || nazioni.length==0">
+		Non è stato trovato alcun prodotto simile a '{{ query }}'
+	</div>
+
+	<div *ngIf="nazioni &&  nazioni.length>0">
+		<h1>Risultati</h1>
+		<div class="row">
+			<div class="col-sm-6 col-md-4" *ngFor="let stato of nazioni">
+				<div class="thumbnail">
+
+          <img src="{{stato.flag}}" width="500" class=".animated .fadeInUp">
+					<div class="content">
+
+						<div class="caption">
+							<h3 class=".animated .fadeInUp">
+								<a [routerLink]="['/stato', stato.alpha2Code]">
+									{{ stato.name }}
+								</a>
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

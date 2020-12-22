@@ -12,4 +12,8 @@ export class StatiServiceService {
     const url = `https://restcountries.eu/rest/v2/name/${query}`
     return this.http.get(url);
   }
+  getNation(query: string){
+    const url = `https://restcountries.eu/rest/v2/alpha/${query}`
+    return this.http.get(url);
+  }
 }
