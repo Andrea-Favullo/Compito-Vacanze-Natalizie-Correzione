@@ -1,1 +1,30 @@
-{{nazione | json}}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{nazione.flag}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{nazione.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> <strong>Capitale</strong>: {{nazione.capital}} </li>
+    <li class="list-group-item"> <strong>Regione</strong>: {{nazione.region}} </li>
+    <li class="list-group-item"> <strong>Popolazione</strong>: {{nazione.population}} </li>
+    <li class="list-group-item"> <strong>Area</strong>: {{nazione.area}} </li>
+    <li class="list-group-item"> <strong>Top Level Domain</strong>: {{nazione.topLevelDomain}} </li>
+    <li class="list-group-item"> <strong>Lingue parlate</strong>:
+      <ul *ngFor="let lingua of nazione.languages">
+        <li>{{lingua.name}}</li>
+      </ul>
+    </li>
+    <li class="list-group-item"> <strong>Fusi orari</strong>:
+      <ul *ngFor="let orario of nazione.timezones">
+        <li>{{orario}}</li>
+      </ul>
+    </li>
+    <li class="list-group-item"> <strong>Moneta in circolazione</strong>:
+      <ul *ngFor="let moneta of nazione.currencies">
+        <!--"name": "Euro", "symbol": "€"-->
+        <li><strong>Nome</strong>: {{moneta.name}}</li>
+        <li><strong>Simbolo</strong>: {{moneta.symbol}}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
