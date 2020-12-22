@@ -5,11 +5,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './search-stati.component.html',
   styleUrls: ['./search-stati.component.css']
 })
-export class SearchStatiComponent implements OnInit {
+export class SearchStatiComponent{
 
-  constructor() { }
+  query: string;
+  results: any;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  submit(query: HTMLInputElement): void {
+
+    if (!query.value) {
+      return;
+    }
+    this.query = query.value;
+    console.log(this.query)
   }
-
 }
